@@ -1,0 +1,137 @@
+Act as a senior Roblox developer, level
+designer, and horror game director. Help
+me build a realistic, terrifying, try-hard
+survival horror game in Roblox Studio
+using Luau. It must be very hard to
+finish, with a huge map and constant
+dread. Write real working code, no
+placeholders or pseudo code.
+
+GAME CONCEPT
+Title: "Ward 13"
+Setting: a huge abandoned hospital at
+night. 4 floors, a basement morgue, a
+rooftop, and a flooded sewer exit.
+Realistic, dirty, and decayed, with PBR
+materials, grime decals, trash, broken
+equipment. No graphic gore, so it
+follows Roblox rules.
+Players: solo or 1-4 co-op. Monster
+speed and difficulty scale with the
+number of players.
+Story: patients vanished and something
+still walks the halls. Tell the story
+through notes, audio logs, and the
+environment, not cutscenes.
+
+GOAL (5 stages, one life, 30-45 min)
+1. Wake up in the basement and find the
+   fuse box key.
+2. Restore power floor by floor by
+   finding 3 hidden fuses.
+3. Find 4 keycards (random spawns each
+   run) to unlock the exit tunnel.
+4. Start the generator and survive a
+   60-second lockdown while the monster
+   hunts you.
+5. Escape through the sewers before the
+   water rises.
+
+MAP
+Long winding halls, dead ends, locked
+shortcuts that open once power is on,
+and vents the player can crawl through.
+Zones that feel different: morgue,
+patient wards, operating theater, kids'
+wing, administration, roof, sewers.
+Use StreamingEnabled and zone-based
+loading so it runs on phones.
+
+MONSTERS
+1. The Stalker: main monster. Patrols
+   between random waypoints with
+   PathfindingService. Hears sprinting,
+   slammed doors, and dropped items.
+   Sees you with a vision cone and line
+   of sight. Chases, searches your last
+   known position, checks lockers, then
+   slowly gives up. Gets faster and
+   smarter every stage.
+2. The Crawler: hides in vents and
+   ceilings, drops down when you walk
+   past.
+3. The Watcher: stands far away and only
+   moves when you look away. Looking at
+   it too long drains sanity.
+Always give a sound warning before
+danger so deaths feel fair.
+
+STEALTH AND SURVIVAL
+- Crouch, sprint with stamina, quiet
+  walking.
+- Hide in lockers and beds (hold-breath
+  minigame).
+- Flashlight with a draining battery
+  that flickers when the monster is near.
+- Sanity meter: low sanity causes fake
+  sounds, hallucinations, and fake
+  monsters.
+- Limited items: batteries, medkits,
+  and noise-makers to distract the
+  monster. Only 3 inventory slots.
+- One life. If you die, the run ends
+  and a new randomized run begins.
+
+DIFFICULTY
+Hard but fair. Random key, fuse, and
+item spawns every run. No checkpoints.
+Doors are loud. Resources are tight.
+Monster speed rises every stage.
+
+JUMPSCARE DIRECTOR
+Build a server-side Director that
+tracks player tension and decides when
+scares happen. Include lights bursting,
+doors slamming, figures in windows,
+sudden loud sounds, fake scares that
+turn out to be nothing, and real
+monster scares. Use cooldowns and
+randomness so it is never predictable.
+Use silence before big scares. Tension
+should rise and fall, not spam.
+
+ATMOSPHERE
+Very dark lighting, fog, color
+correction, camera shake, flickering
+lights, dripping water, distant
+footsteps, 3D positional sound with
+reverb, a heartbeat that speeds up
+when the monster is close, breathing
+and whispers, and music that fades to
+silence at the scariest moments.
+
+TECH REQUIREMENTS
+- All monster, key, item, and win logic
+  runs on the server. The client only
+  does UI, effects, and input.
+- Validate every RemoteEvent.
+- Use ModuleScripts and a clean folder
+  structure.
+- Comment every script.
+- Make it work on mobile and low-end
+  devices.
+
+HOW TO DELIVER
+One system at a time. First give the
+full folder structure for Studio
+(Workspace, ServerScriptService,
+ReplicatedStorage, StarterPlayerScripts,
+etc.). Then give full commented Luau
+code and say exactly where each script
+goes and what type it is (Script,
+LocalScript, or ModuleScript). Start
+with The Stalker AI. After each system,
+tell me how to test it. If something
+can't be done in Roblox, tell me and
+give the closest alternative. Wait for
+me to say "next".
